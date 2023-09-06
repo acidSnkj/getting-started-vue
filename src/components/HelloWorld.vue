@@ -1,5 +1,6 @@
 <template>
   <HeaderBar />
+  <SpecTech />
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
@@ -33,12 +34,14 @@
 
 <script>
 import HeaderBar from "@/components/header-bar.vue"
+import SpecTech from '@/components/Car/SpecTech/SpecTech.vue'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
-  components: { HeaderBar }
+  components: { HeaderBar, SpecTech }
 }
 </script>
 
