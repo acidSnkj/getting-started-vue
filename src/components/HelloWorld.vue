@@ -1,7 +1,5 @@
 <template>
   <HeaderBar />
-  <SpecTech />
-  <CarList />
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
@@ -38,15 +36,13 @@
 
 <script>
 import HeaderBar from "@/components/header-bar.vue"
-import SpecTech from '@/components/Car/SpecTech/SpecTech.vue'
-import CarList from '@/components/Car/List/CarList.vue'
 
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
-  components: { HeaderBar, SpecTech, CarList }
+  components: { HeaderBar }
 }
 </script>
 
