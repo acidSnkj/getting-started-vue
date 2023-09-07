@@ -1,18 +1,26 @@
 <template>
 	<!-- TODO: Crear vista detalle del carro seleccionado -->
 	<div class="container">
-		<span>Vista detalle carro</span>
+		<div class="container-all">
+			<span>Vista detalle carro</span>
 		<span>{{ car.name }}</span>
 		<input type="text" v-model=car.name />
 		<button class="btn btn-secondary" @click=cancel>Cancel</button>
 		<button class="btn btn-primary" @click=save>Save</button>
 		<div class="form-check">
 			<input class="form-check-input" type="checkbox" v-model=car.active id="flexCheckDefault">
+			<div class="badge text-bg-success">
+			<pre>
+			{{ message }}
+		</pre>
+		</div>
+		</div>
+		</div>
+<div class="form-check-dad">
+	<div class="form-check">
 			<label class="form-check-label" for="flexCheckDefault">
 				Active
 			</label>
-		</div>
-		<div class="form-check">
 			<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model=car.color
 				value="green">
 			<label class="form-check-label" for="flexRadioDefault1">
@@ -25,25 +33,23 @@
 			<label class="form-check-label" for="flexRadioDefault2">
 				Rojo diamante
 			</label>
-			<div class="selector-dad">
-				<div :class="{ selectorChild: !car.tr }">
-				</div>
-				<select class=" form-select" v-model="car.tr" aria-label="Default select example" @keyup.esc="clear">
-					<option disabled value>Selecccione tipo de traccion
-					</option>
-					<option>Traccion Delantera</option>
-					<option>Traccion Trasera</option>
-					<option>Traccion en las 4 ruedas</option>
-				</select>
-			</div>
+					<div :style="{ 'background-color': car.color, 'width': '40px', 'height': '20px' }" />
+</div>
 
 		</div>
-		<div :style="{ 'background-color': car.color, 'width': '40px', 'height': '20px' }" />
-		<div class="badge text-bg-success">
-			<pre>
-			{{ message }}
-		</pre>
-		</div>
+	<div class="selector-dad-box">
+					<div class="selector-dad">
+						<div :class="{ selectorChild: !car.tr }">
+						</div>
+						<select class=" form-select" v-model="car.tr" aria-label="Default select example" @keyup.esc="clear">
+							<option disabled value>Selecccione tipo de traccion
+							</option>
+							<option>Traccion Delantera</option>
+							<option>Traccion Trasera</option>
+							<option>Traccion en las 4 ruedas</option>
+						</select>
+					</div>
+	</div>
 	</div>
 </template>
 
@@ -94,12 +100,14 @@ export default {
 .container {
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
-.selector-dad {
+.form-check-dad {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .selectorChild {
@@ -107,5 +115,18 @@ export default {
 	height: 40px;
 	background-color: red;
 	border-radius: 10px;
+}
+.selector-dad {
+	display: flex;
+}
+.container-all {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.selector-dad-box {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }
 </style>

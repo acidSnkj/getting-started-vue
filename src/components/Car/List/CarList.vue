@@ -1,10 +1,10 @@
 <template>
-	<div v-for="car in cars" :key="car.name">
+	<div class="carlist-container" v-for="car in cars" :key="car.name">
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
 				<h5 class="card-title">{{ car.name }}</h5>
 				<p class="card-text">{{ car.description }} </p>
-				<button type="button" class="btn btn-primary" @click="selectedCar = car">Seleccionar</button>
+				<button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?" @click="selectedCar = car">Seleccionar</button>
 			</div>
 		</div>
 	</div>
@@ -22,6 +22,7 @@ export default {
 			selectedCar: undefined,
 			cars: [
 				{
+					id:1,
 					name: "Mazda 6",
 					description: "Beautiful car",
 					engine: '',
@@ -33,6 +34,7 @@ export default {
 					tr: 'FR',
 				},
 				{
+					id:2, 
 					name: "Ford Fiesta",
 					description: "Meh Car",
 					engine: '1.6L',
@@ -44,6 +46,7 @@ export default {
 					tr: 'FF',
 				},
 				{
+					id:3,
 					name: "Chevrolet Aveo",
 					description: "Not Okay Car",
 					engine: '1.2L',
@@ -59,3 +62,8 @@ export default {
 	}
 }
 </script>
+<style>
+.carlist-container {
+	display: flex;
+}
+</style>
