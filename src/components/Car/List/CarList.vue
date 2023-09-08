@@ -2,7 +2,7 @@
 	<div v-if="message" class="alert alert-primary" role="alert">
 		{{ message }}
 	</div>
-	<div v-if="!message">
+	<div class="card-container" v-if="!message">
 		<div v-for="car in cars" :key="car.name">
 			<div class="card" style="width: 18rem;">
 				<div class="card-body">
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 
-	<div v-if=selectedCar>
+	<div class="selected-car-box" v-if=selectedCar>
 		<input type="text" v-model="selectedCar.name" />
 		<input type="number" v-model="selectedCar.cc" />
 		<span>Selected car</span>
@@ -113,7 +113,14 @@ export default {
 }
 </script>
 <style>
-.carlist-container {
+.card-container {
 	display: flex;
+	justify-content: space-evenly;
+}
+.selected-car-box{
+display: flex;
+    flex-direction: column;
+    align-items: center;
+	padding: 5px;
 }
 </style>

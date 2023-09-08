@@ -21,9 +21,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" v-bind:href=github target="_blank">GitHub</a></li>
-            <li><a class="dropdown-item" v-bind:href=youtube>Youtube</a></li>
+            <li><a class="dropdown-item" v-bind:href=youtube target="_blank">Youtube</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" v-bind:href="testing4" target="_blank">Testing</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -44,7 +44,8 @@ export default {
 	data() {
 		return {
 			github: "https://github.com/acidSnkj/getting-started-vue",
-			youtube: "https://www.youtube.com/watch?v=4deVCNJq3qc",
+      youtube: "https://www.youtube.com/watch?v=4deVCNJq3qc",
+      testing4: "https://www.google.com."
 		}
 	},
 }
