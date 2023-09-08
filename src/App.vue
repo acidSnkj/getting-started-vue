@@ -1,16 +1,13 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <SpecTech />
-  <img alt="Vue logo" src="./assets/logo.png">
+  <CarVersion2 />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import CarVersion2 from "@/components/CarVersion2/CarVersion2"
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    CarVersion2
   }
 }
 </script>
