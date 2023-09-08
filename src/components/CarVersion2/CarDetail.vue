@@ -19,12 +19,19 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+import cloneDeep from 'lodash/cloneDeep';
+
 export default {
 	props: {
 		car: {
 			type: Object,
 			default: () => { }
 		},
+		id: {
+			type: Number,
+			default: 0
+		}
 	},
 	data() {
 		return {
@@ -41,15 +48,23 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions(['updateCarAction']),
 		cancel() {
 			// this.$emit('cancel');
 			this.$router.push({ name: 'car-list' });
 		},
 		save() {
 			// this.$emit('save', this.clonedCar);
-			this.$router.push({ name: 'car-list' });
+			// this.$router.push({ name: 'car-list' });
+			this.updateCarAction(this.clonedCar);
 		}
 	},
+	computed: {
+		...mapGetters(['getCarById'])
+	},
+	created() {
+		this.clonedCar = cloneDeep(this.getCarById(this.id));
+	}
 }
 </script>
 

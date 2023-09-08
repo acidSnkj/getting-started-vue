@@ -3,7 +3,7 @@
 		{{ message }}
 	</div>
 	<div class="card-container" v-if="!message">
-		<div v-for="car in cars" :key="car.name">
+		<div v-for="car in cars" :key="car.id">
 			<div class="card" style="width: 18rem;">
 				<div class="card-body">
 					<h5 class="card-title">{{ car.name }}</h5>
