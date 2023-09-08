@@ -9,18 +9,11 @@
 					<h5 class="card-title">{{ car.name }}</h5>
 					<p class="card-text">{{ car.description }} </p>
 					<p class="card-text">{{ car.cc }} </p>
-					<button type="button" class="btn btn-primary" @click="selectCar(car)">Seleccionar</button>
+					<router-link :to="{ name: 'car-details', params: { id: car.id } }"
+						class="btn btn-primary">Seleccionar</router-link>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="selected-car-box" v-if=selectedCar>
-		<input type="text" v-model="selectedCar.name" />
-		<input type="number" v-model="selectedCar.cc" />
-		<span>Selected car</span>
-		<span>{{ fullDescription }}</span>
-		<span>{{ ccMessage }}</span>
 	</div>
 </template>
 
@@ -38,12 +31,11 @@ export default {
 			default: undefined
 		}
 	},
-	emits: ['car-selected'],
-	methods: {
-		selectCar(car) {
-			this.$emit('car-selected', car);
+	data() {
+		return {
+			ccMessage: ''
 		}
-	}
+	},
 }
 </script>
 <style>
@@ -51,10 +43,11 @@ export default {
 	display: flex;
 	justify-content: space-evenly;
 }
-.selected-car-box{
-display: flex;
-    flex-direction: column;
-    align-items: center;
+
+.selected-car-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	padding: 5px;
 }
 </style>

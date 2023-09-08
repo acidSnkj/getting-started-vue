@@ -42,10 +42,12 @@ export default {
 	},
 	methods: {
 		cancel() {
-			this.$emit('cancel');
+			// this.$emit('cancel');
+			this.$router.push({ name: 'car-list' });
 		},
 		save() {
-			this.$emit('save', this.clonedCar);
+			// this.$emit('save', this.clonedCar);
+			this.$router.push({ name: 'car-list' });
 		}
 	},
 }
